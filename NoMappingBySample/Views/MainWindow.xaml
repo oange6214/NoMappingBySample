@@ -1,0 +1,28 @@
+﻿<Window
+    x:Class="NoMappingBySample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NoMappingBySample.ViewModels"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance viewmodels:ProductViewModel}"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <ListBox
+            Margin="20"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Products}"
+            SelectedItem="{Binding SelectedProduct}" />
+
+        <StackPanel Margin="20">
+            <TextBlock Margin="5" Text="Product Name:" />
+            <TextBlock Margin="5" Text="{Binding SelectedProduct.Name}" />
+            <TextBlock Margin="5" Text="Product Price:" />
+            <TextBlock Margin="5" Text="{Binding SelectedProduct.Price}" />
+        </StackPanel>
+    </StackPanel>
+</Window>
